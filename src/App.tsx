@@ -3,6 +3,8 @@ import {
   // eslint-disable-next-line
   Treemap
 } from 'recharts';
+
+declare var Twitch:any;
 import './App.css';
 export class App extends React.Component {
   private _ticker: any;
@@ -11,8 +13,14 @@ export class App extends React.Component {
   }
   componentDidMount() {
     if (!this._ticker) {
-      this._ticker = setInterval(this.apiCall.bind(this), 250);
+      this._ticker = setInterval(this.apiCall.bind(this), 500);
     }
+    // new Twitch.Embed("twitch-embed", {
+    //   width: 854,
+    //   height: 480,
+    //   channel: "cantwitchreach70"
+    // });       <div id="twitch-embed"></div>
+
   }
 
   componentWillUnmount() {
@@ -26,6 +34,7 @@ export class App extends React.Component {
     .then((response) => response.json())
     .then((data) => {
 
+      // if (data.data.length === this.state.votes.length)
       let voteOptions: any = {};
       for( var i=0; i < data.data.length; i++ ) {
         let vo = data.data[i];
@@ -39,10 +48,11 @@ export class App extends React.Component {
       let res = Object.keys(voteOptions).map((key, index) => {
         return {name: key, value: voteOptions[key]}
       });
-      this.setState({votes: {name:"Votes", children: res}});
+      // console.log("RES:", res);
+      this.setState({votes:[{children:res}]});
       // let count = [];
       // let res = Object.keys(data).map((key, index) => {})
-      console.log('Success:', data);
+      // console.log('Success:', data);
     })
     .catch((error) => {
       console.error('Error:', error);
@@ -53,17 +63,18 @@ export class App extends React.Component {
     const {votes} = this.state;
     return (
       <div className="App">
+
       <div key="1" className="rechart-container">
       <h5 className="Survey-Description">Next Action</h5>
         <Treemap
           width={730}
           height={250}
           data={votes}
-          dataKey="Value"
-          isAnimationActive={false}
+          dataKey="value"
+          isAnimationActive={true}
           aspectRatio={1}
           stroke="#f48c42"
-          fill="#4a4440"
+          fill="#130c089e"
         />
       </div>
       </div>
