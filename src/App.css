@@ -1,0 +1,77 @@
+body {
+  background-color:black;
+  margin:0;
+}
+.App {
+  text-align: center;
+}
+.rechart-container {
+  width: 365px;
+}
+
+.Survey-Description-Footer {
+  display: inline-flex;
+  position: absolute;
+  color: #ffffff69;
+  width: 365px;
+  margin-top: 128px!important;
+  /* margin-left:8px; */
+  /* font-size:13px; */
+}
+
+.Survey-Description{
+  width:730px;
+  font-size:2em;
+  color:#f48c42;
+  margin:0;
+  padding:0;
+  /* float:left; */
+}
+.Filter-Settings-Container{
+  padding-top:4px;
+}
+.Filter-Label {
+  color:white;
+  margin-left:4px;
+  margin-top:4px;
+  font-weight: 100;
+}
+
+.Diagram-Container{
+  background-color: #00001024;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
